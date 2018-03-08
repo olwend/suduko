@@ -9,7 +9,9 @@ class Column
   end
 
   def transform_array(array)
-    array.map { |x| Square.new(x)}
+    target = []
+    array.each { |x| target << x unless target.include?(x) }
+    target.map { |x| Square.new(x)}
   end
 
 #  create valid method

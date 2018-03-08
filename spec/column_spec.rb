@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'column'
+require './lib/column'
 
 RSpec.describe Column do
   context 'a blank column' do
@@ -14,21 +14,20 @@ RSpec.describe Column do
       subject = described_class.new([1,2,3,4,5,6,7,8,9])
       expect(subject).to be_valid
     end
+  end
 
-    it 'is invalid with a \'!' do
+
+    it 'is invalid with a !' do
       subject = described_class.new([1,'!',3,4,5,6,7,8,9])
       expect(subject).not_to be_valid
     end
-  end
 
-  context 'is invalid if contains duplicate squares' do
-    it 'is valid' do
+
+  context 'if contains duplicate squares' do
+    it 'is not valid' do
       subject = described_class.new([1,1,3,4,5,6,7,8,9])
       expect(subject).not_to be_valid
     end
   end
-
-
-
 
 end

@@ -1,15 +1,15 @@
 require 'spec_helper'
-require './lib/column'
+require './lib/validarray'
 
-RSpec.describe Column do
-  context 'a blank column' do
+RSpec.describe Validarray do
+  context 'a blank column-row' do
     subject { described_class.new([" "]) }
     it 'is not valid' do
       expect(subject).to_not be_valid
     end
   end
 
-  context 'is valid if it is nine squares' do
+  context 'it is nine squares' do
     it 'is valid' do
       subject = described_class.new([1,2,3,4,5,6,7,8,9])
       expect(subject).to be_valid

@@ -1,24 +1,24 @@
 require './lib/square'
 
-class Column
+class Validarray
 
-  attr_reader :array
+  attr_reader :validarray
 
   def initialize(array)
-    @array = transform_array(array)
+    @validarray = transform_array(array)
   end
 
   def transform_array(array)
     target = []
     array.each { |x| target << x unless target.include?(x) }
-    target.map { |x| Square.new(x)}
+    target.map { |sq| Square.new(sq)}
   end
 
 #  create valid method
   def valid?
     # if array of 9 integers
-      array.uniq.size == 9 &&
-      array.all? { |x| x.valid? }
+      validarray.size == 9 &&
+      validarray.all? { |sq| sq.valid? }
       #poss check that all array objs square
   end
 

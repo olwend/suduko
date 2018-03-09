@@ -17,6 +17,7 @@ RSpec.describe Square do
       expect(subject).to be_valid
     end
 
+
     context "number is <1" do
       subject { described_class.new(0) }
       it "is not valid" do
@@ -30,5 +31,14 @@ RSpec.describe Square do
         expect(subject).to_not be_valid
       end
     end
+
+    context 'square contains float' do
+
+      subject { described_class.new(4.5) }
+      it "is not valid" do
+        expect(subject).to_not be_valid
+      end
+    end
+
   end
 end
